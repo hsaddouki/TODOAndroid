@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -94,9 +95,8 @@ public class NavDrawerActivity extends AppCompatActivity
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
                 String result = data.getStringExtra("result");
-                Toast.makeText(this, result, Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "No result!", Toast.LENGTH_LONG).show();
+                TextView tv = (TextView) findViewById(R.id.text_nd);
+                tv.setText(result);
             }
         }
     }
