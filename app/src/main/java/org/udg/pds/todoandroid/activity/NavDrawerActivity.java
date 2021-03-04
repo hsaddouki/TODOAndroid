@@ -1,5 +1,6 @@
 package org.udg.pds.todoandroid.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -37,7 +38,9 @@ public class NavDrawerActivity extends AppCompatActivity
                     .setAction("ACTION", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(NavDrawerActivity.this, "Hola!", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(NavDrawerActivity.this, "Hola!", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(NavDrawerActivity.this, TestActivity.class);
+                            startActivity(i);
                         }
                     }).show();
             }
