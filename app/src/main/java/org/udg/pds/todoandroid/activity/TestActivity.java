@@ -2,6 +2,7 @@ package org.udg.pds.todoandroid.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,11 @@ public class TestActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(TestActivity.this, et.getText().toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(TestActivity.this, et.getText().toString(), Toast.LENGTH_LONG).show();
+                Intent i = new Intent();
+                i.putExtra("result", et.getText().toString());
+                setResult(Activity.RESULT_OK, i);
+                finish();
             }
         });
     }
