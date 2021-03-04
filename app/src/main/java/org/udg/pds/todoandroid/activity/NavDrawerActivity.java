@@ -1,5 +1,6 @@
 package org.udg.pds.todoandroid.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -40,7 +41,7 @@ public class NavDrawerActivity extends AppCompatActivity
                         public void onClick(View view) {
                             //Toast.makeText(NavDrawerActivity.this, "Hola!", Toast.LENGTH_LONG).show();
                             Intent i = new Intent(NavDrawerActivity.this, TestActivity.class);
-                            startActivity(i);
+                            startActivityForResult(i, 1); // 1: tipus d'operació
                         }
                     }).show();
             }
@@ -85,6 +86,19 @@ public class NavDrawerActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                String result = data.getStringExtra("result");
+                Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "No result!", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
